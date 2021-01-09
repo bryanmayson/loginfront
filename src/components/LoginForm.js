@@ -30,7 +30,7 @@ class LoginForm extends React.Component{
 
     // Handles user login when button press
     logInUser(){
-        
+        console.log(this.state)
     }
 
     render(){
