@@ -9,7 +9,7 @@ class FormButton extends React.Component {
 
     render() {
         return (
-            <div className="input-bar">
+            <div className="input-button">
                 <input type="button" value={this.props.value}></input>
             </div>
 

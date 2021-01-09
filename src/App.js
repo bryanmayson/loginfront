@@ -1,18 +1,12 @@
 import './App.css';
-import Form from './components/Form';
-import FormButton from './components/FormButton';
-import InputHandler from './components/InputHandler';
+import LoginForm from './components/LoginForm';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Form>
-          <InputHandler type ="text">Username</InputHandler>
-          <InputHandler type="password">Password</InputHandler>
-          <FormButton value="Login"></FormButton>
-        </Form>
-      </header>
+      <LoginForm></LoginForm>
+      <div className="login-image"></div>
     </div>
   );
 }
