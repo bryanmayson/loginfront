@@ -8,7 +8,7 @@ class LoginForm extends React.Component{
     render(){
         return(
             <div className="form-container">
-                <div className="login-form">
+                <div className="login-form">    
                     <h1>Login</h1>
                     <Form>
                         <InputHandler type ="text">Username</InputHandler>
@@ -16,6 +16,8 @@ class LoginForm extends React.Component{
                         <FormButton value="Login"></FormButton>
                     </Form>
 
+                    <p>Don't have an account? Register Here </p>
+                    <p>Forgot your password? Click Here</p>
                 </div>
             </div>
         )
