@@ -10,9 +10,8 @@ class FormButton extends React.Component {
     render() {
         return (
             <div className="input-button">
-                <input type="button" value={this.props.value}></input>
+                <input type="button" value={this.props.value} onClick={this.props.action}></input>
             </div>
-
         )
     }
 }
