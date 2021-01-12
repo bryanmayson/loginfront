@@ -2,10 +2,9 @@ import React from 'react';
 import Form from './Form';
 import FormButton from './FormButton';
 import InputHandler from './InputHandler';
-import './LoginForm.css';
 import {Link} from 'react-router-dom';
 
-class LoginForm extends React.Component{
+class RegisterForm extends React.Component{
 
     constructor(props){
         super(props)
@@ -38,19 +37,18 @@ class LoginForm extends React.Component{
         return(
             <div className="form-container">
                 <div className="login-form">    
-                    <h1>Login</h1>
+                    <h1>Create a new account</h1>
                     <Form>
                         <InputHandler type ="text" action={this.updateUsername}>Username</InputHandler>
                         <InputHandler type="password" action={this.updatePassword}>Password</InputHandler>
-                        <FormButton value="Login" action={this.logInUser}></FormButton>
+                        <FormButton value="Create" action={this.logInUser}></FormButton>
                     </Form>
 
-                    <p>Don't have an account? <Link to="/register"> Register Here</Link></p>
-                    <p>Forgot your password? Click Here</p>
+                    <p>Already have an account? <Link to="/"> Login Here</Link></p>
                 </div>
             </div>
         )
     }
 }
 
-export default LoginForm;
+export default RegisterForm;
