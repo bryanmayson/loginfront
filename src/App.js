@@ -10,14 +10,11 @@ function App() {
 
   return (
     <div className="App">
-          <AnimatePresence exitBeforeEnter>
+          <AnimatePresence exitBeforeEnter >
             <Switch location={location} key={location.key}>  
-              <Route exact path="/">
-                <LoginForm></LoginForm>
-              </Route>
-              <Route path="/register">
-                <RegisterForm></RegisterForm>
-              </Route>
+              <Route exact path="/" component={LoginForm}/>
+              <Route path="/register" component={RegisterForm}/>
+
             </Switch>
           </AnimatePresence>
       <div className="login-image"></div>
