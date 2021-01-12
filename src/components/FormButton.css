@@ -28,11 +28,6 @@
 
 }
 
-.input-button input:focus{
-    background-color: black;
-    color: white;
-
-}
 @media only screen and (max-width: 768px) {
     .input-button{
         justify-content: center;

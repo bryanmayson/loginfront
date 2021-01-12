@@ -4,6 +4,20 @@ import FormButton from './FormButton';
 import InputHandler from './InputHandler';
 import './LoginForm.css';
 import {Link} from 'react-router-dom';
+import {AnimatePresence, motion} from "framer-motion";
+
+const transitionStyle = {
+    visible:{
+        y:0,
+        opacity:1,
+        transition:{ duration:0.5}
+    },
+    hidden:{
+        y:300,
+        opacity:0
+    }
+
+}
 
 class LoginForm extends React.Component{
 
@@ -36,19 +50,19 @@ class LoginForm extends React.Component{
 
     render(){
         return(
-            <div className="form-container">
-                <div className="login-form">    
-                    <h1>Login</h1>
-                    <Form>
-                        <InputHandler type ="text" action={this.updateUsername}>Username</InputHandler>
-                        <InputHandler type="password" action={this.updatePassword}>Password</InputHandler>
-                        <FormButton value="Login" action={this.logInUser}></FormButton>
-                    </Form>
+            <motion.div className="form-container" initial="hidden" animate="visible"variants={transitionStyle}>
+                    <div className="login-form">    
+                        <h1>Login</h1>
+                        <Form>
+                            <InputHandler type ="text" action={this.updateUsername}>Username</InputHandler>
+                            <InputHandler type="password" action={this.updatePassword}>Password</InputHandler>
+                            <FormButton value="Login" action={this.logInUser}></FormButton>
+                        </Form>
 
-                    <p>Don't have an account? <Link to="/register"> Register Here</Link></p>
-                    <p>Forgot your password? Click Here</p>
-                </div>
-            </div>
+                        <p>Don't have an account? <Link to="/register"> Register Here</Link></p>
+                        <p>Forgot your password? Click Here</p>
+                    </div>
+            </motion.div>
         )
     }
 }

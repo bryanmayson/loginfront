@@ -1,6 +1,7 @@
 :root{
   --grey:rgb(134, 134, 134);
   --blue:rgb(120, 216, 231);
+  overflow: hidden;
 }
 .App {
   display:flex;

@@ -3,6 +3,21 @@ import Form from './Form';
 import FormButton from './FormButton';
 import InputHandler from './InputHandler';
 import {Link} from 'react-router-dom';
+import{motion, AnimatePresence} from "framer-motion";
+
+
+const transitionStyle = {
+    visible:{
+        y:0,
+        opacity:1,
+        transition:{ duration:0.5}
+    },
+    hidden:{
+        y:-300,
+        opacity:0
+    }
+
+}
 
 class RegisterForm extends React.Component{
 
@@ -35,18 +50,18 @@ class RegisterForm extends React.Component{
 
     render(){
         return(
-            <div className="form-container">
+            <motion.div className="form-container" initial="hidden" animate="visible" variants={transitionStyle}>
                 <div className="login-form">    
                     <h1>Create a new account</h1>
                     <Form>
                         <InputHandler type ="text" action={this.updateUsername}>Username</InputHandler>
-                        <InputHandler type="password" action={this.updatePassword}>Password</InputHandler>
+                        <InputHandler type="text" action={this.updatePassword}>Password</InputHandler>
                         <FormButton value="Create" action={this.logInUser}></FormButton>
                     </Form>
 
                     <p>Already have an account? <Link to="/"> Login Here</Link></p>
                 </div>
-            </div>
+            </motion.div>
         )
     }
 }
