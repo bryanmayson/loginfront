@@ -1,25 +1,24 @@
 import React from 'react';
 import './FormButton.css';
 import {motion} from "framer-motion";
-import { withRouter } from 'react-router-dom';
 
 const hoverEffect={
     scale:1.1,
-    backgroundColor: "black",
-    color:"white"
+    backgroundColor:"#000000",
+    color:"#FFFFFF",
+    transition:{duration:0.1}
 }
 
 const tapEffect={
     scale:0.9,
-    backgroundColor: "black",
-    color:"white",
+    backgroundColor:"#000000",
+    color:"#FFFFFF",
+    transition:{duration:0.1}
 }
 
 //Form Button
 class FormButton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+
 
     render() {
         return (
