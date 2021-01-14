@@ -4,6 +4,7 @@ import FormButton from './FormButton';
 import InputHandler from './InputHandler';
 import {Link} from 'react-router-dom';
 import{motion} from "framer-motion";
+import axios from 'axios';
 
 
 const transitionStyle = {
@@ -29,8 +30,8 @@ class RegisterForm extends React.Component{
         };
         
         this.updateUsername = this.updateUsername.bind(this);
-        this.updatePassword = this.updatePassword.bind(this)
-        this.logInUser = this.logInUser.bind(this)
+        this.updatePassword = this.updatePassword.bind(this);
+        this.register = this.register.bind(this);
     }
 
 
@@ -43,9 +44,21 @@ class RegisterForm extends React.Component{
         this.setState({username:this.state.username,password:user_input});
     }
 
-    // Handles user login when button press
-    logInUser(){
-        console.log(this.state)
+ 
+
+    register(){
+
+        const data  = {
+            username: this.state.username,
+            password: this.state.password
+        }
+        axios.post("http://localhost:3001/register",data)
+        .then((res)=>{
+            console.log(res)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
     }
 
     render(){
@@ -56,7 +69,7 @@ class RegisterForm extends React.Component{
                     <Form>
                         <InputHandler type ="text" action={this.updateUsername}>Username</InputHandler>
                         <InputHandler type="text" action={this.updatePassword}>Password</InputHandler>
-                        <FormButton value="Create" action={this.logInUser}></FormButton>
+                        <FormButton value="Create" action={this.register}></FormButton>
                     </Form>
 
                     <p>Already have an account? <Link to="/"> Login Here</Link></p>
