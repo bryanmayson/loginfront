@@ -14,7 +14,7 @@ const transitionStyle = {
         transition:{ duration:0.5}
     },
     hidden:{
-        y:-300,
+        y:300,
         opacity:0
     }
 
@@ -59,6 +59,7 @@ class RegisterForm extends React.Component{
         .catch((err)=>{
             console.log(err)
         })
+
     }
 
     render(){

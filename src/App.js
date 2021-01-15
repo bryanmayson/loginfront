@@ -8,18 +8,14 @@ import {useState} from 'react';
 
 function App() {
   const location =useLocation();
-  const [loggedIn , updateLogin] = useState(false);
 
   return (
     <div className="App">
           <AnimatePresence exitBeforeEnter >
             <Switch location={location} key={location.key}>  
-              <Route exact path="/">
-                  {loggedIn?<Redirect to="/homepage"/> : <LoginForm/> }</Route>
-              <Route/>
-              <Route exact path="/register">
-                  {loggedIn?<Redirect to="/homepage"/> : <RegisterForm/> }</Route>
-              <Route/>
+              <Route exact path="/" component={LoginForm}/>
+              <Route exact path="/register" component={RegisterForm}/>
+              <Route exact path ="/homepage"/>
             </Switch>
           </AnimatePresence>
 

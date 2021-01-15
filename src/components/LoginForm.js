@@ -5,6 +5,7 @@ import InputHandler from './InputHandler';
 import './LoginForm.css';
 import {Link} from 'react-router-dom';
 import {motion} from "framer-motion";
+import axios from 'axios';
 
 const transitionStyle = {
     visible:{
@@ -44,8 +45,20 @@ class LoginForm extends React.Component{
     }
 
     // Handles user login when button press
+
     logInUser(){
-        console.log(this.state)
+        const data  = {
+            username: this.state.username,
+            password: this.state.password
+        }
+        console.log(data)
+        axios.post("http://localhost:3001/login",data)
+        .then((res)=>{
+            console.log(res)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
     }
 
     render(){
