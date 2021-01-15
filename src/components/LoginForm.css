@@ -1,10 +1,10 @@
 
 
 .form-container{
-
     display: flex;
-    justify-content: center;
-    align-items: center;
+
+    height: 100vh;
+    
 }
 
 .form-container h1{
@@ -15,8 +15,11 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    padding-left:5vw ;
-    padding-right: 5vw;
+    padding: 5vw;
+
+    background-color: white;
+    border-radius: 1.5em;
+
 }
 
 .login-form p{
@@ -30,11 +33,29 @@
     .form-container{
         margin-top: 5vh;
         width: 100%;
+        border-left-width: 0;
+        border-right: none;
+
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .login-form{
+       padding-bottom: 30vh;
+       width:auto;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
   }
   
   @media only screen and (min-width: 769px) {
     .form-container{
         width: 50%;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .login-form{
+        border: 1px solid var(--grey);
     }
   }
