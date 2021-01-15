@@ -2,6 +2,7 @@ import React from 'react';
 import Form from './Form';
 import FormButton from './FormButton';
 import InputHandler from './InputHandler';
+import auth from './Auth';
 import './LoginForm.css';
 import {Link} from 'react-router-dom';
 import {motion} from "framer-motion";
@@ -51,10 +52,16 @@ class LoginForm extends React.Component{
             username: this.state.username,
             password: this.state.password
         }
-        console.log(data)
+
         axios.post("http://localhost:3001/login",data)
         .then((res)=>{
-            console.log(res)
+            if (res.data.status === "valid"){
+                auth.login(()=>{
+                    this.props.history.push("/homepage");
+                    // stores the user info into the local storage
+                    localStorage.setItem("user",JSON.stringify(res.data.info[0]))
+                })
+            }
         })
         .catch((err)=>{
             console.log(err)

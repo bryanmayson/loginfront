@@ -3,8 +3,10 @@ import LoginForm from './components/LoginForm';
 import {BrowserRouter as Switch,Redirect,Route,useLocation} from 'react-router-dom';
 import RegisterForm from './components/RegisterForm';
 import { AnimatePresence } from 'framer-motion';
-import {useState} from 'react';
-
+import auth from "./components/Auth";
+import HomePage from './components/HomePage';
+import {ProtectedRoute} from "./components/ProtectedRoute";
+import {UnprotectedRoute} from "./components/UnprotectedRoute";
 
 function App() {
   const location =useLocation();
@@ -13,9 +15,9 @@ function App() {
     <div className="App">
           <AnimatePresence exitBeforeEnter >
             <Switch location={location} key={location.key}>  
-              <Route exact path="/" component={LoginForm}/>
-              <Route exact path="/register" component={RegisterForm}/>
-              <Route exact path ="/homepage"/>
+              <UnprotectedRoute exact path="/" component={LoginForm}/>
+              <UnprotectedRoute exact path="/register" component={RegisterForm}/>
+              <ProtectedRoute exact path ="/homepage" component={HomePage}/>
             </Switch>
           </AnimatePresence>
 
