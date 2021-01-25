@@ -26,7 +26,7 @@ function HomePage(){
         <motion.div className="form-container" initial="hidden" animate="visible"variants={transitionStyle}>
             <div className="login-form">
                 <h1>You are logged in</h1>
-                <h1>User: {data.username}</h1>
+                <p>{data.username}</p>
                 <FormButton value="Logout" action={logout}></FormButton>
             </div>
         </motion.div>

@@ -53,19 +53,25 @@ class LoginForm extends React.Component{
             password: this.state.password
         }
 
-        axios.post("http://localhost:3001/login",data)
-        .then((res)=>{
-            if (res.data.status === "valid"){
-                auth.login(()=>{
-                    this.props.history.push("/homepage");
-                    // stores the user info into the local storage
-                    localStorage.setItem("user",JSON.stringify(res.data.info[0]))
-                })
-            }
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
+
+        if (data.username.length > 0){
+
+            axios.post("http://localhost:3001/login",data)
+            .then((res)=>{
+                if (res.data.status === "valid"){
+                    auth.login(()=>{
+                        // Stores the user info into the local storage
+                        localStorage.setItem("user",JSON.stringify(res.data.info[0]))
+                        // Go to the homepage
+                        this.props.history.push("/homepage");
+                    })
+                }
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+        }
+
     }
 
     render(){
